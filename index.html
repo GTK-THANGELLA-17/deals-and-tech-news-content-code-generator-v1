@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deals and Tech News</title>
+<footer>
+        <p>Designed and built by G.Thangella &copy; 2024. All rights reserved.</p>
+        <p>This website is protected by copyright law. Unauthorized use or modification of the code is prohibited.</p>
+    </footer>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #007bff;
+            color: #fff;
+        }
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+        }
+        .item {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        select,
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Deals and Tech News</h1>
+    </header>
+
+    <section id="deals">
+        <h2>Deals</h2>
+        <form id="deal-form">
+            <div id="deal-inputs">
+                <div class="deal-item">
+                    <label for="deal-category">Category:</label>
+                    <select id="deal-category" name="deal-category[]">
+                        <option value="electronics">Electronics</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="home">Home</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                    <label for="deal-name">Deal Name:</label>
+                    <input type="text" id="deal-name" name="deal-name[]">
+                    <label for="deal-description">Description:</label>
+                    <textarea id="deal-description" name="deal-description[]"></textarea>
+                    <label for="deal-link">Link:</label>
+                    <input type="text" id="deal-link" name="deal-link[]">
+                    <label for="deal-date">Date:</label>
+                    <input type="date" id="deal-date" name="deal-date[]">
+                    <label for="deal-image">Image:</label>
+                    <input type="file" id="deal-image" name="deal-image[]">
+                </div>
+            </div>
+            <button type="button" onclick="addDeal()">Add Deal</button>
+            <button type="button" onclick="removeDeal()">Remove Deal</button>
+        </form>
+    </section>
+
+    <section id="tech-news">
+        <h2>Tech News</h2>
+        <form id="news-form">
+            <div id="news-inputs">
+                <div class="news-item">
+                    <label for="news-category">Category:</label>
+                    <select id="news-category" name="news-category[]">
+                        <option value="tech">Tech</option>
+                        <option value="science">Science</option>
+                        <option value="health">Health</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                    <label for="news-headline">Headline:</label>
+                    <input type="text" id="news-headline" name="news-headline[]">
+                    <label for="news-description">Description:</label>
+                    <textarea id="news-description" name="news-description[]"></textarea>
+                    <label for="news-link">Link:</label>
+                    <input type="text" id="news-link" name="news-link[]">
+                    <label for="news-date">Date:</label>
+                    <input type="date" id="news-date" name="news-date[]">
+                    <label for="news-image">Image:</label>
+                    <input type="file" id="news-image" name="news-image[]">
+                </div>
+            </div>
+            <button type="button" onclick="addNews()">Add News</button>
+            <button type="button" onclick="removeNews()">Remove News</button>
+        </form>
+    </section>
+
+    <button onclick="generateHTML()">Generate HTML</button>
+    <button onclick="copyCode()">Copy Code</button>
+    <h2>Generated HTML</h2>
+    <textarea id="generated-html" cols="80" rows="10" readonly></textarea>
+    <button onclick="removeGeneratedHTML()">Remove Generated HTML</button>
+
+
+ <script>
+    function generateHTML() {
+        const dealInputs = document.querySelectorAll("#deal-inputs > .deal-item");
+        const newsInputs = document.querySelectorAll("#news-inputs > .news-item");
+        let generatedHTML = `
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Deals and Tech News</title>
+<footer>
+        <p>Designed and built by G.Thangella &copy; 2024. All rights reserved.</p>
+        <p>This website is protected by copyright law. Unauthorized use or modification of the code is prohibited.</p>
+    </footer>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        margin: 0;
+                        padding: 0;
+                        background-color: #f4f4f4;
+                    }
+                    .container {
+                        max-width: 800px;
+                        margin: 20px auto;
+                        padding: 20px;
+                        background-color: #fff;
+                        border-radius: 10px;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    }
+                    h2 {
+                        color: #007bff;
+                    }
+                    .item {
+                        margin-bottom: 20px;
+                        padding: 10px;
+                        background-color: #f9f9f9;
+                        border-radius: 5px;
+                    }
+                    .item-file {
+                        margin-top: 5px;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <h1>Deals and Tech News</h1>`;
+
+        function getFileType(fileName) {
+            const fileExtension = fileName.split('.').pop().toLowerCase();
+            if (fileExtension === 'jpg' || fileExtension === 'jpeg' || fileExtension === 'png' || fileExtension === 'gif') {
+                return 'image';
+            } else if (fileExtension === 'pdf') {
+                return 'pdf';
+            } else if (fileExtension === 'doc' || fileExtension === 'docx') {
+                return 'document';
+            } else {
+                return 'other';
+            }
+        }
+
+        if (dealInputs.length > 0) {
+            generatedHTML += '<h2>Deals</h2>';
+            dealInputs.forEach(function(input) {
+                const dealCategory = input.querySelector('[name="deal-category[]"]').value;
+                const dealName = input.querySelector('[name="deal-name[]"]').value;
+                const dealDescription = input.querySelector('[name="deal-description[]"]').value;
+                const dealLink = input.querySelector('[name="deal-link[]"]').value;
+                const dealDate = input.querySelector('[name="deal-date[]"]').value;
+                const dealFile = input.querySelector('[name="deal-image[]"]').files[0];
+                const fileType = dealFile ? getFileType(dealFile.name) : null;
+                const fileDisplay = dealFile ? `<a href="${URL.createObjectURL(dealFile)}" target="_blank">${dealFile.name}</a>` : 'No file selected';
+                generatedHTML += `
+                    <div class="item">
+                        <p><strong>Category:</strong> ${dealCategory}</p>
+                        <p><strong>Deal Name:</strong> ${dealName}</p>
+                        <p><strong>Description:</strong> ${dealDescription}</p>
+                        <p><strong>Link:</strong> <a href="${dealLink}" target="_blank">${dealLink}</a></p>
+                        <p><strong>Date:</strong> ${dealDate}</p>
+                        <p><strong>File:</strong> (${fileType}) ${fileDisplay}</p>
+                    </div>`;
+            });
+        }
+
+        if (newsInputs.length > 0) {
+            generatedHTML += '<h2>Tech News</h2>';
+            newsInputs.forEach(function(input) {
+                const newsCategory = input.querySelector('[name="news-category[]"]').value;
+                const newsHeadline = input.querySelector('[name="news-headline[]"]').value;
+                const newsDescription = input.querySelector('[name="news-description[]"]').value;
+                const newsLink = input.querySelector('[name="news-link[]"]').value;
+                const newsDate = input.querySelector('[name="news-date[]"]').value;
+                const newsFile = input.querySelector('[name="news-image[]"]').files[0];
+                const fileType = newsFile ? getFileType(newsFile.name) : null;
+                const fileDisplay = newsFile ? `<a href="${URL.createObjectURL(newsFile)}" target="_blank">${newsFile.name}</a>` : 'No file selected';
+                generatedHTML += `
+                    <div class="item">
+                        <p><strong>Category:</strong> ${newsCategory}</p>
+                        <p><strong>News Headline:</strong> ${newsHeadline}</p>
+                        <p><strong>Description:</strong> ${newsDescription}</p>
+                        <p><strong>Link:</strong> <a href="${newsLink}" target="_blank">${newsLink}</a></p>
+                        <p><strong>Date:</strong> ${newsDate}</p>
+                        <p><strong>File:</strong> (${fileType}) ${fileDisplay}</p>
+                    </div>`;
+            });
+        }
+
+        generatedHTML += `
+                </div>
+            </body>
+            </html>`;
+
+        document.getElementById("generated-html").value = generatedHTML;
+    }
+
+    function addDeal() {
+        const dealInputs = document.getElementById('deal-inputs');
+        const newDealItem = document.createElement('div');
+        newDealItem.classList.add('deal-item');
+        newDealItem.innerHTML = `
+            <label for="deal-category">Category:</label>
+            <select id="deal-category" name="deal-category[]">
+                <option value="electronics">Electronics</option>
+                <option value="clothing">Clothing</option>
+                <option value="home">Home</option>
+                <!-- Add more options as needed -->
+            </select>
+            <label for="deal-name">Deal Name:</label>
+            <input type="text" id="deal-name" name="deal-name[]">
+            <label for="deal-description">Description:</label>
+            <textarea id="deal-description" name="deal-description[]"></textarea>
+            <label for="deal-link">Link:</label>
+            <input type="text" id="deal-link" name="deal-link[]">
+            <label for="deal-date">Date:</label>
+            <input type="date" id="deal-date" name="deal-date[]">
+            <label for="deal-image">Image:</label>
+            <input type="file" id="deal-image" name="deal-image[]">`;
+        dealInputs.appendChild(newDealItem);
+    }
+
+    function removeDeal() {
+        const dealInputs = document.getElementById('deal-inputs');
+        const dealItems = dealInputs.getElementsByClassName('deal-item');
+        if (dealItems.length > 1) {
+            dealInputs.removeChild(dealItems[dealItems.length - 1]);
+        }
+    }
+
+    function addNews() {
+        const newsInputs = document.getElementById('news-inputs');
+        const newNewsItem = document.createElement('div');
+        newNewsItem.classList.add('news-item');
+        newNewsItem.innerHTML = `
+            <label for="news-category">Category:</label>
+            <select id="news-category" name="news-category[]">
+                <option value="tech">Tech</option>
+                <option value="science">Science</option>
+                <option value="health">Health</option>
+                <!-- Add more options as needed -->
+            </select>
+            <label for="news-headline">Headline:</label>
+            <input type="text" id="news-headline" name="news-headline[]">
+            <label for="news-description">Description:</label>
+            <textarea id="news-description" name="news-description[]"></textarea>
+            <label for="news-link">Link:</label>
+            <input type="text" id="news-link" name="news-link[]">
+            <label for="news-date">Date:</label>
+            <input type="date" id="news-date" name="news-date[]">
+            <label for="news-image">Image:</label>
+            <input type="file" id="news-image" name="news-image[]">`;
+        newsInputs.appendChild(newNewsItem);
+    }
+
+    function removeNews() {
+        const newsInputs = document.getElementById('news-inputs');
+        const newsItems = newsInputs.getElementsByClassName('news-item');
+        if (newsItems.length > 1) {
+            newsInputs.removeChild(newsItems[newsItems.length - 1]);
+        }
+    }
+
+    function copyCode() {
+        const generatedHTML = document.getElementById("generated-html");
+        generatedHTML.select();
+        document.execCommand("copy");
+        alert("HTML code copied to clipboard!");
+    }
+
+    function removeGeneratedHTML() {
+        document.getElementById("generated-html").value = "";
+    }
+
+</script>
+</body>
+</html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deals and Tech News</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <footer>
         <p>Designed and built by G.Thangella &copy; 2024. All rights reserved.</p>
         <p>This website is protected by copyright law. Unauthorized use or modification of the code is prohibited.</p>
@@ -14,12 +15,12 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color:#763626;
         }
         header {
             text-align: center;
             padding: 20px 0;
-            background-color: #007bff;
+            background-color: #2A3132;
             color: #fff;
         }
         section {
@@ -31,7 +32,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         h2 {
-            color: #007bff;
+            color: #2A3132;
         }
         .item {
             margin-bottom: 20px;
@@ -55,7 +56,7 @@
             box-sizing: border-box;
         }
         button {
-            background-color: #007bff;
+            background-color: #2A3132;
             color: #fff;
             border: none;
             border-radius: 4px;
@@ -66,7 +67,21 @@
         button:hover {
             background-color: #0056b3;
         }
+
+/* Footer styles */
+footer {
+    background-color: #FDF6F6; /* Light gray */
+    color:  #763626; /* Dark gray */
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: relative; /* Ensure proper positioning */
+    z-index: 1; /* Set a lower z-index */
+}
+
+
     </style>
+
 </head>
 <body>
     <header>
@@ -74,71 +89,70 @@
     </header>
 
     <section id="deals">
-        <h2>Deals</h2>
+        <h2><i class="fas fa-tags"></i> Deals</h2>
         <form id="deal-form">
             <div id="deal-inputs">
                 <div class="deal-item">
-                    <label for="deal-category">Category:</label>
+                    <label for="deal-category"><i class="fas fa-list-alt"></i> Category:</label>
                     <select id="deal-category" name="deal-category[]">
                         <option value="electronics">Electronics</option>
                         <option value="clothing">Clothing</option>
                         <option value="home">Home</option>
                         <!-- Add more options as needed -->
                     </select>
-                    <label for="deal-name">Deal Name:</label>
+                    <label for="deal-name"><i class="fas fa-gift"></i> Deal Name:</label>
                     <input type="text" id="deal-name" name="deal-name[]">
-                    <label for="deal-description">Description:</label>
+                    <label for="deal-description"><i class="fas fa-info-circle"></i> Description:</label>
                     <textarea id="deal-description" name="deal-description[]"></textarea>
-                    <label for="deal-link">Link:</label>
+                    <label for="deal-link"><i class="fas fa-external-link-alt"></i> Link:</label>
                     <input type="text" id="deal-link" name="deal-link[]">
-                    <label for="deal-date">Date:</label>
+                    <label for="deal-date"><i class="fas fa-calendar-alt"></i> Date:</label>
                     <input type="date" id="deal-date" name="deal-date[]">
-                    <label for="deal-image">Image:</label>
+                    <label for="deal-image"><i class="fas fa-image"></i> Image:</label>
                     <input type="file" id="deal-image" name="deal-image[]">
                 </div>
             </div>
-            <button type="button" onclick="addDeal()">Add Deal</button>
-            <button type="button" onclick="removeDeal()">Remove Deal</button>
+            <button type="button" onclick="addDeal()"><i class="fas fa-plus"></i> Add Deal</button>
+            <button type="button" onclick="removeDeal()"><i class="fas fa-minus"></i> Remove Deal</button>
         </form>
     </section>
 
     <section id="tech-news">
-        <h2>Tech News</h2>
+        <h2><i class="fas fa-newspaper"></i> Tech News</h2>
         <form id="news-form">
             <div id="news-inputs">
                 <div class="news-item">
-                    <label for="news-category">Category:</label>
+                    <label for="news-category"><i class="fas fa-list-alt"></i> Category:</label>
                     <select id="news-category" name="news-category[]">
                         <option value="tech">Tech</option>
                         <option value="science">Science</option>
                         <option value="health">Health</option>
                         <!-- Add more options as needed -->
                     </select>
-                    <label for="news-headline">Headline:</label>
+                    <label for="news-headline"><i class="fas fa-heading"></i> Headline:</label>
                     <input type="text" id="news-headline" name="news-headline[]">
-                    <label for="news-description">Description:</label>
+                    <label for="news-description"><i class="fas fa-info-circle"></i> Description:</label>
                     <textarea id="news-description" name="news-description[]"></textarea>
-                    <label for="news-link">Link:</label>
+                    <label for="news-link"><i class="fas fa-external-link-alt"></i> Link:</label>
                     <input type="text" id="news-link" name="news-link[]">
-                    <label for="news-date">Date:</label>
+                    <label for="news-date"><i class="fas fa-calendar-alt"></i> Date:</label>
                     <input type="date" id="news-date" name="news-date[]">
-                    <label for="news-image">Image:</label>
+                    <label for="news-image"><i class="fas fa-image"></i> Image:</label>
                     <input type="file" id="news-image" name="news-image[]">
                 </div>
             </div>
-            <button type="button" onclick="addNews()">Add News</button>
-            <button type="button" onclick="removeNews()">Remove News</button>
+            <button type="button" onclick="addNews()"><i class="fas fa-plus"></i> Add News</button>
+            <button type="button" onclick="removeNews()"><i class="fas fa-minus"></i> Remove News</button>
         </form>
     </section>
 
-    <button onclick="generateHTML()">Generate HTML</button>
-    <button onclick="copyCode()">Copy Code</button>
+    <button onclick="generateHTML()"><i class="fas fa-code"></i> Generate HTML</button>
+    <button onclick="copyCode()"><i class="far fa-copy"></i> Copy Code</button>
     <h2>Generated HTML</h2>
     <textarea id="generated-html" cols="80" rows="10" readonly></textarea>
-    <button onclick="removeGeneratedHTML()">Remove Generated HTML</button>
+    <button onclick="removeGeneratedHTML()"><i class="fas fa-trash-alt"></i> Remove Generated HTML</button>
 
-
- <script>
+   <script>
     function generateHTML() {
         const dealInputs = document.querySelectorAll("#deal-inputs > .deal-item");
         const newsInputs = document.querySelectorAll("#news-inputs > .news-item");
@@ -331,5 +345,6 @@
     }
 
 </script>
+
 </body>
 </html>
